@@ -3,7 +3,6 @@ package com.ldccWMS.myproject;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -33,11 +32,17 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "index";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/charts", method = RequestMethod.GET)
     public String login(Locale locale, Model model) {
+
+        return "charts";
+    }
+	
+	@RequestMapping(value = "/map")
+    public String map(Locale locale, Model model) {
 
         return "map";
     }

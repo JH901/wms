@@ -1,26 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>Simple Map</title>
-  <meta name="viewport" content="initial-scale=1.0">
-  <meta charset="utf-8">
-  <style>
-    #map {
-      height: 100%;
-    }
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
+<title>LDCC WMS</title>
 
-  <script>
+<!-- Custom fonts for this template-->
+<link href="/resources/vendor/fontawesome-free/css/all.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
+<style>
+#map {
+	height: 100%;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+</style>
+
+<script>
     var map;
     var trucks = [
       {
@@ -200,13 +214,109 @@
       // });
     }
   </script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3E5303lIWaEe7PQLnXU9mZZoVHJ42_jI&callback=initMap&libraries=geometry"
-    async defer></script>
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3E5303lIWaEe7PQLnXU9mZZoVHJ42_jI&callback=initMap&libraries=geometry"
+	async defer></script>
 </head>
 
-<body>
-  <div id="map"></div>
+<body id="page-top">
+	<div id="wrapper">
+		<!-- Sidebar -->
+		<ul
+			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+			id="accordionSidebar">
+
+			<!-- Sidebar - Brand -->
+			<a
+				class="sidebar-brand d-flex align-items-center justify-content-center"
+				href="">
+				<div class="sidebar-brand-icon">
+					<i class="fas fa-warehouse"></i>
+
+				</div>
+				<div class="sidebar-brand-text mx-3" href="/">LDCC WMS</div>
+			</a>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
+
+			<!-- Nav Item - Dashboard -->
+			<li class="nav-item active"><a class="nav-link" href="/"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>중앙 관제시스템</span></a></li>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider">
+
+			<!-- Heading -->
+			<div class="sidebar-heading">물류</div>
+
+			<li class="nav-item"><a class="nav-link" href="/map"> <i
+					class="fas fa-fw fa-chart-area"></i> <span>운송</span></a></li>
+
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapsePages"
+				aria-expanded="true" aria-controls="collapsePages"> <i
+					class="fas fa-fw fa-folder"></i> <span>Pages</span>
+			</a>
+				<div id="collapsePages" class="collapse"
+					aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">Login Screens:</h6>
+						<a class="collapse-item" href="login.html">Login</a> <a
+							class="collapse-item" href="register.html">Register</a> <a
+							class="collapse-item" href="forgot-password.html">Forgot
+							Password</a>
+						<div class="collapse-divider"></div>
+						<h6 class="collapse-header">Other Pages:</h6>
+						<a class="collapse-item" href="404.html">404 Page</a> <a
+							class="collapse-item" href="blank.html">Blank Page</a>
+					</div>
+				</div></li>
+
+			<!-- Nav Item - Charts -->
+			<li class="nav-item"><a class="nav-link" href="charts.html">
+					<i class="fas fa-fw fa-chart-area"></i> <span>Charts</span>
+			</a></li>
+
+			<!-- Nav Item - Tables -->
+			<li class="nav-item"><a class="nav-link" href="tables.html">
+					<i class="fas fa-fw fa-table"></i> <span>Tables</span>
+			</a></li>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider d-none d-md-block">
+
+			<!-- Sidebar Toggler (Sidebar) -->
+			<div class="text-center d-none d-md-inline">
+				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+			</div>
+
+		</ul>
+		<!-- End of Sidebar -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+					<!-- Page Heading -->
+					<div
+						class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 mt-3 text-gray-800">Logistics</h1>
+					</div>
+					<div class="card" style="width: 100%; height: 800px;">
+						<div class="card-body">
+							<div id="map"></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 
 </html>
