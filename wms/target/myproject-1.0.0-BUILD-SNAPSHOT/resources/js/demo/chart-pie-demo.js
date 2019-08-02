@@ -33,3 +33,64 @@ var myPieChart = new Chart(ctx, {
     cutoutPercentage: 80,
   },
 });
+var ctx = document.getElementById("warehouseUsageLT");
+var LowTempPieChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ["적재 가능", "적재 중"],
+      datasets: [{
+        data: [17.75, 82.25],
+        backgroundColor: ['#f2f2f2', '#4e73df'],
+        hoverBackgroundColor: ['#e6e6e6', '#2e59d9'],
+        hoverBorderColor: "rgba(234, 236, 244, 1)",
+      }],
+    },
+    options: {
+      maintainAspectRatio: false,
+      tooltips: {
+        backgroundColor: "rgb(255,255,255)",
+        bodyFontColor: "#858796",
+        borderColor: '#dddfeb',
+        borderWidth: 1,
+        xPadding: 15,
+        yPadding: 15,
+        displayColors: false,
+        caretPadding: 10,
+      },
+      legend: {
+        display: false
+      },
+      cutoutPercentage: 80,
+    },
+  });
+
+var ctx = document.getElementById("warehouseUsageF");
+var frozenPieChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ["적재 가능", "적재 중"],
+      datasets: [{
+        data: [15, 75],
+        backgroundColor: ['#f2f2f2', '#4e73df'],
+        hoverBackgroundColor: ['#e6e6e6', '#2e59d9'],
+        hoverBorderColor: "rgba(234, 236, 244, 1)",
+      }],
+    },
+    options: {
+      maintainAspectRatio: false,
+      tooltips: {
+        backgroundColor: "rgb(255,255,255)",
+        bodyFontColor: "#858796",
+        borderColor: '#dddfeb',
+        borderWidth: 1,
+        xPadding: 15,
+        yPadding: 15,
+        displayColors: false,
+        caretPadding: 10,
+      },
+      legend: {
+        display: false
+      },
+      cutoutPercentage: 80,
+    },
+  });

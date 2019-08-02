@@ -6,24 +6,23 @@
 
 <head>
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>LDCC WMS</title>
-
-<!-- Custom fonts for this template-->
-<link href="/resources/vendor/fontawesome-free/css/all.min.css"
-	rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-	rel="stylesheet">
-
-<!-- Custom styles for this template-->
-<link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>LDCC WMS</title>
+	
+	<!-- Custom fonts for this template-->
+	<link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
+	
+	<!-- Custom styles for this template-->
+	<link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -31,19 +30,13 @@
 
 	<!-- Page Wrapper -->
 	<div id="wrapper">
-
 		<!-- Sidebar -->
-		<ul
-			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-			id="accordionSidebar">
+		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
-			<a
-				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="">
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/charts">
 				<div class="sidebar-brand-icon">
 					<i class="fas fa-warehouse"></i>
-
 				</div>
 				<div class="sidebar-brand-text mx-3">LDCC WMS</div>
 			</a>
@@ -52,30 +45,53 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link" href=""> <i
-					class="fas fa-fw fa-tachometer-alt"></i> <span>중앙 관제시스템</span></a></li>
+			<li class="nav-item active">
+				<a class="nav-link" href="/charts"> 
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Central Control System</span>
+				</a>
+			</li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
+			
+			<li class="nav-item">
+				<a class="nav-link" href="/">
+					<i class="fas fa-warehouse"></i> <span>Warehouses</span>
+				</a>
+			</li>
 
-			<!-- Heading -->
-			<div class="sidebar-heading">물류</div>
+			<li class="nav-item">
+				<a class="nav-link" href="/map"> 
+					<i class="fas fa-truck-moving"></i><span> Logistics</span>
+				</a>
+			</li>
 
-			<li class="nav-item"><a class="nav-link" href="/map"> <i
-					class="fas fa-fw fa-chart-area"></i> <span>운송</span></a></li>
-
-			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="/charts"> <i
-					class="fas fa-fw fa-chart-area"></i> <span>Charts</span>
-			</a></li>
-
-			<!-- Nav Item - Tables -->
-			<li class="nav-item"><a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i> <span>Tables</span>
-			</a></li>
+			<li class="nav-item">
+				<a class="nav-link" href="/charts"> 
+					<i class="fas fa-fw fa-chart-area"></i> <span>Charts</span>
+				</a>
+			</li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
+			
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					<i class="far fa-folder-open"></i> <span>Documents</span>
+				</a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					<i class="fas fa-fw fa-wrench"></i> <span>Utilities</span>
+				</a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					<i class="fas fa-fw fa-cog"></i> <span>Components</span>
+				</a>
+			</li>
 
 		</ul>
 		<!-- End of Sidebar -->
@@ -91,12 +107,12 @@
 
 					<!-- Page Heading -->
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 mt-3 text-gray-800">Warehouse</h1>
+						<h1 class="h3 mb-0 mt-3 text-gray-800"><i class="fas fa-boxes"></i> Warehouse</h1>
 					</div>
 					
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-success">Low-temperature Warehouse</h6>
+							<h6 class="m-0 font-weight-bold text-success"><i class="fas fa-leaf"> </i> Low-temperature Warehouse</h6>
 						</div>
 						<div class="card-body">
 							<h4 class="small font-weight-bold">
@@ -175,7 +191,7 @@
 
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Frozen Warehouse</h6>
+							<h6 class="m-0 font-weight-bold text-primary"><i class="far fa-snowflake">  </i> Frozen Warehouse</h6>
 						</div>
 						<div class="card-body">
 							<h4 class="small font-weight-bold">
@@ -251,8 +267,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+			
+			
 		</div>
 		<!-- /.container-fluid -->
 
@@ -277,6 +293,7 @@
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="/resources/vendor/jquery/jquery.min.js"></script>
+	
 	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
@@ -284,8 +301,7 @@
 
 	<!-- Custom scripts for all pages-->
 	<script src="/resources/js/sb-admin-2.min.js"></script>
-
-
+	
 </body>
 
 </html>

@@ -33,17 +33,12 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<ul
-			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-			id="accordionSidebar">
+		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
-			<a
-				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="">
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/charts">
 				<div class="sidebar-brand-icon">
 					<i class="fas fa-warehouse"></i>
-
 				</div>
 				<div class="sidebar-brand-text mx-3">LDCC WMS</div>
 			</a>
@@ -52,29 +47,53 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link" href=""> <i
-					class="fas fa-fw fa-tachometer-alt"></i> <span>중앙 관제시스템</span></a></li>
+			<li class="nav-item active">
+				<a class="nav-link" href="/charts"> 
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Central Control System</span>
+				</a>
+			</li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
+			
+			<li class="nav-item">
+				<a class="nav-link" href="/">
+					<i class="fas fa-warehouse"></i> <span>Warehouses</span>
+				</a>
+			</li>
 
-			<!-- Heading -->
-			<div class="sidebar-heading">물류</div>
+			<li class="nav-item">
+				<a class="nav-link" href="/map"> 
+					<i class="fas fa-truck-moving"></i><span> Logistics</span>
+				</a>
+			</li>
 
-			<li class="nav-item"><a class="nav-link" href="/map"> <i
-					class="fas fa-fw fa-chart-area"></i> <span>운송</span></a></li>
-			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="charts.html">
+			<li class="nav-item">
+				<a class="nav-link" href="/charts"> 
 					<i class="fas fa-fw fa-chart-area"></i> <span>Charts</span>
-			</a></li>
-
-			<!-- Nav Item - Tables -->
-			<li class="nav-item"><a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i> <span>Tables</span>
-			</a></li>
+				</a>
+			</li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
+			
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					<i class="far fa-folder-open"></i> <span>Documents</span>
+				</a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					<i class="fas fa-fw fa-wrench"></i> <span>Utilities</span>
+				</a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					<i class="fas fa-fw fa-cog"></i> <span>Components</span>
+				</a>
+			</li>
 
 		</ul>
 		<!-- End of Sidebar -->
@@ -91,7 +110,7 @@
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 mt-3 text-gray-800">Dashboard</h1>
+						<h1 class="h3 mb-0 mt-3 text-gray-800"><i class="fas fa-fw fa-tachometer-alt"> </i> Dashboard</h1>
 					</div>
 					
 					<!-- Content Row -->
@@ -102,7 +121,7 @@
 							<div class="card border-left-primary shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
+										<div class ="col mr-2">
 											<div
 												class="text-xs font-weight-bold text-primary text-uppercase mb-1">월간 수입</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">100,000,000 원</div>

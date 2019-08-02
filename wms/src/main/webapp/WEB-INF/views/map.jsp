@@ -123,7 +123,7 @@ html, body {
 
       map = new google.maps.Map(document.getElementById('map'), {
         center: companyPosition,
-        zoom: 15
+        zoom: 14
       });
 
       var factoryImg = {
@@ -144,9 +144,18 @@ html, body {
 
       var markers = trucks.map((data, idx) => {
         var marker = makeTruckMarker(idx, data);
-        makeInfoWindow(marker, data.estimatedMinutes, marker.id);
         return marker;
       });
+    
+      var infowindowPark = new google.maps.InfoWindow({
+        content: 'TRUCK 1'
+      });
+      infowindowPark.open(map, markers[0]);
+      
+      var infowindowKim = new google.maps.InfoWindow({
+         content: 'TRUCK 2'
+       });
+      infowindowKim.open(map, markers[1]);
     }
 
     function makeTruckMarker(idx, data) {
@@ -175,122 +184,74 @@ html, body {
       return marker
     }
 
-    function makeInfoWindow(marker, minutes) {
-      var now = new Date().getTime();
-      var countDownDate = new Date(now + minutes * 60000).getTime();
-
-      var x = setInterval(function () {
-        var now = new Date().getTime();
-        var distance = countDownDate - now;
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        if (document.getElementById(marker.id)) {
-          document.getElementById(marker.id).innerHTML = `${minutes}분 ${seconds}초 후 도착`;
-        }
-
-        if (distance < 0) {
-          clearInterval(x);
-          if (document.getElementById(marker.id)) {
-            document.getElementById(marker.id).innerHTML = "도착";
-          }
-        }
-      }, 1000);
-
-      var contentString = `
-      <div>
-        <p><b>${marker.id}</b></p>
-        <p id="${marker.id}"></p>
-        <p>${marker.data.info.name} 기사님</p>
-        <p>${marker.data.info.category}</p>
-      </div>`;
-
-      var infowindow = new google.maps.InfoWindow({
-        content: contentString
-      });
-
-      // marker.addListener('click', function () {
-        infowindow.open(map, marker);
-      // });
-    }
   </script>
-<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3E5303lIWaEe7PQLnXU9mZZoVHJ42_jI&callback=initMap&libraries=geometry"
-	async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3E5303lIWaEe7PQLnXU9mZZoVHJ42_jI&callback=initMap&libraries=geometry" async defer></script>
 </head>
 
 <body id="page-top">
 	<div id="wrapper">
 		<!-- Sidebar -->
-		<ul
-			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-			id="accordionSidebar">
+		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
-			<a
-				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="">
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/charts">
 				<div class="sidebar-brand-icon">
 					<i class="fas fa-warehouse"></i>
-
 				</div>
-				<div class="sidebar-brand-text mx-3" href="/">LDCC WMS</div>
+				<div class="sidebar-brand-text mx-3">LDCC WMS</div>
 			</a>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link" href="/"> <i
-					class="fas fa-fw fa-tachometer-alt"></i> <span>중앙 관제시스템</span></a></li>
+			<li class="nav-item active">
+				<a class="nav-link" href="/charts"> 
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Central Control System</span>
+				</a>
+			</li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
+			
+			<li class="nav-item">
+				<a class="nav-link" href="/">
+					<i class="fas fa-warehouse"></i> <span>Warehouses</span>
+				</a>
+			</li>
 
-			<!-- Heading -->
-			<div class="sidebar-heading">물류</div>
+			<li class="nav-item">
+				<a class="nav-link" href="/map"> 
+					<i class="fas fa-truck-moving"></i><span> Logistics</span>
+				</a>
+			</li>
 
-			<li class="nav-item"><a class="nav-link" href="/map"> <i
-					class="fas fa-fw fa-chart-area"></i> <span>운송</span></a></li>
-
-			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
-				data-toggle="collapse" data-target="#collapsePages"
-				aria-expanded="true" aria-controls="collapsePages"> <i
-					class="fas fa-fw fa-folder"></i> <span>Pages</span>
-			</a>
-				<div id="collapsePages" class="collapse"
-					aria-labelledby="headingPages" data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">Login Screens:</h6>
-						<a class="collapse-item" href="login.html">Login</a> <a
-							class="collapse-item" href="register.html">Register</a> <a
-							class="collapse-item" href="forgot-password.html">Forgot
-							Password</a>
-						<div class="collapse-divider"></div>
-						<h6 class="collapse-header">Other Pages:</h6>
-						<a class="collapse-item" href="404.html">404 Page</a> <a
-							class="collapse-item" href="blank.html">Blank Page</a>
-					</div>
-				</div></li>
-
-			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="charts.html">
+			<li class="nav-item">
+				<a class="nav-link" href="/charts"> 
 					<i class="fas fa-fw fa-chart-area"></i> <span>Charts</span>
-			</a></li>
-
-			<!-- Nav Item - Tables -->
-			<li class="nav-item"><a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i> <span>Tables</span>
-			</a></li>
+				</a>
+			</li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
-
-			<!-- Sidebar Toggler (Sidebar) -->
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
-			</div>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					<i class="far fa-folder-open"></i> <span>Documents</span>
+				</a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					<i class="fas fa-fw fa-wrench"></i> <span>Utilities</span>
+				</a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					<i class="fas fa-fw fa-cog"></i> <span>Components</span>
+				</a>
+			</li>
 
 		</ul>
 		<!-- End of Sidebar -->
@@ -304,12 +265,70 @@ html, body {
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 mt-3 text-gray-800">Logistics</h1>
+						<h1 class="h3 mb-0 mt-3 text-gray-800"><i class="fas fa-truck-moving"> </i>  Logistics</h1>
 					</div>
-					<div class="card" style="width: 100%; height: 800px;">
+					<div class="row">
+					<div class="card col-sm-7 mr-3" style="height: 800px;">
 						<div class="card-body">
 							<div id="map"></div>
 						</div>
+					</div>
+					<div class="card col-sm-4" style="height: 800px;">
+						<h3 class="h3 mb-3 mt-3 text-gray-800">도착 예정 시간</h3>
+						<div class="mb-3">
+							<div class="card border-left-primary shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Truck1</div>
+											<div class="h5 mb-1 font-weight-bold text-gray-800">3분</div>
+											<div class="mb-1 font-weight-bold text-gray-800">냉동 : 롯데푸드 스크류바</div>
+											<div class="mb-0 font-weight-bold text-gray-800">박 롯데 기사님</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-truck-moving fa-2x text-gray-300"> </i>					
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="mb-3">
+							<div class="card border-left-primary shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Truck2</div>
+											<div class="h5 mb-1 font-weight-bold text-gray-800">4분</div>
+											<div class="mb-1 font-weight-bold text-gray-800">냉장 : 장수 사과</div>
+											<div class="mb-0 font-weight-bold text-gray-800">김 정보 기사님</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-truck-moving fa-2x text-gray-300"> </i>											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="mb-3">
+							<div class="card border-left-primary shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Truck3</div>
+											<div class="h5 mb-1 font-weight-bold text-gray-800">21분</div>
+											<div class="mb-1 font-weight-bold text-gray-800">냉장 : 안산 대부도 포도 </div>
+											<div class="mb-0 font-weight-bold text-gray-800">이 통신 기사님</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-truck-moving fa-2x text-gray-300"> </i>											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
 					</div>
 
 				</div>
